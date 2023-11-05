@@ -1,3 +1,46 @@
+<!-- app.component.html -->
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" side="start">
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/home">Home</ion-item>
+            <!--Home is the Cover Page-->
+            <ion-item routerLink="/toc">Table of Contents</ion-item>
+            <!--ion-item routerLink="/content">The Story</ion-item-->
+            <!--The Story is the Content, which is accessible under the TOC-->
+            <!-- Assuming you have corresponding routes for these links -->
+            <!--ion-item routerLink="/chapter1">Chapter 1</ion-item-->
+            <!--ion-item routerLink="/chapter2">Chapter 2</ion-item-->
+            <!--ion-item routerLink="/chapter3">Chapter 3</ion-item-->
+            <!-- Add additional chapters or menu items here -->
+            <ion-item routerLink="/aboutapp">About the App, GitHub Link</ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <!-- This title can be dynamic as per page loaded -->
+          <ion-title>myBookApp</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <!-- Pages loaded via routing will appear here -->
+        <ion-router-outlet></ion-router-outlet>
+      </ion-content>
+    </div>
+  </ion-split-pane>
 </ion-app>
+
